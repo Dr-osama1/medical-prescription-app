@@ -54,7 +54,11 @@ const calculateDose = (medicine, patient) => {
     warnings.push(`Suggested single dose exceeds the single-dose maximum for ${medicine.name}.`);
   }
 
-  if (patient.allergies && patient.allergies.toLowerCase().includes('penicillin') && medicine.name.toLowerCase().includes('amoxicillin')) {
+  if (
+    patient.allergies &&
+    patient.allergies.toLowerCase().includes('penicillin') &&
+    medicine.name.toLowerCase().includes('amoxicillin')
+  ) {
     warnings.push('Patient allergy warning: penicillin allergy detected.');
   }
 
@@ -301,6 +305,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Medical Prescription App running at http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Medical Prescription App running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
