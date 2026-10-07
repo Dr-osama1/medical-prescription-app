@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Prescription App</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Clinical Decision Support</p>
+          <h1>Doctor Prescription App</h1>
+        </div>
+        <div class="alert-badge">Educational Use</div>
+      </header>
+
+      <main class="layout">
+        <section class="panel">
+          <h2>Add Patient</h2>
+          <form id="patientForm" class="stack-form">
+            <label>
+              Patient Name
+              <input type="text" name="name" placeholder="e.g. Ahmed Ali" required />
+            </label>
+            <div class="two-col">
+              <label>
+                Age
+                <input type="number" name="age" min="0" required />
+              </label>
+              <label>
+                Weight (kg)
+                <input type="number" name="weightKg" min="0" step="0.1" required />
+              </label>
+            </div>
+            <label>
+              Allergies
+              <input type="text" name="allergies" placeholder="None known" />
+            </label>
+            <label>
+              Notes
+              <textarea name="notes" rows="3" placeholder="Relevant clinical notes"></textarea>
+            </label>
+            <button type="submit">Save Patient</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>Calculate Dose</h2>
+          <form id="doseForm" class="stack-form">
+            <label>
+              Select Patient
+              <select id="patientSelect" required></select>
+            </label>
+            <label>
+              Select Medicine
+              <select id="medicineSelect" required></select>
+            </label>
+            <button type="submit" class="secondary">Calculate</button>
+          </form>
+
+          <div id="doseResult" class="result-box empty">
+            Choose a patient and medicine to calculate a suggested dose.
+          </div>
+        </section>
+
+        <section class="panel spans-2">
+          <h2>Create Prescription</h2>
+          <form id="prescriptionForm" class="stack-form">
+            <div class="two-col">
+              <label>
+                Patient
+                <select id="prescriptionPatientSelect" required></select>
+              </label>
+              <label>
+                Medicine
+                <select id="prescriptionMedicineSelect" required></select>
+              </label>
+            </div>
+            <div class="two-col">
+              <label>
+                Frequency
+                <input type="text" id="frequencyInput" value="Daily" />
+              </label>
+              <label>
+                Duration (days)
+                <input type="number" id="durationInput" value="3" min="1" />
+              </label>
+            </div>
+            <button type="submit">Save Prescription</button>
+          </form>
+        </section>
+      </main>
+
+      <section class="panel full-width">
+        <div class="section-head">
+          <h2>Medicine Catalog</h2>
+        </div>
+        <div id="medicineList" class="medicine-grid"></div>
+      </section>
+
+      <section class="panel full-width">
+        <div class="section-head">
+          <h2>Patient Directory</h2>
+        </div>
+        <div id="patientList" class="patient-list"></div>
+      </section>
+
+      <section class="panel full-width">
+        <div class="section-head">
+          <h2>Prescription History</h2>
+        </div>
+        <div id="prescriptionList" class="prescription-list"></div>
+      </section>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

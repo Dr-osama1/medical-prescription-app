@@ -1,0 +1,34 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "name": "Ahmed Ali",
+      "age": 28,
+      "weightKg": 70,
+      "allergies": "None known",
+      "notes": "No significant medical history"
+    },
+    {
+      "id": 2,
+      "name": "Sara Salem",
+      "age": 12,
+      "weightKg": 35,
+      "allergies": "Penicillin allergy",
+      "notes": "Pediatric patient under supervision"
+    }
+  ],
+  "prescriptions": [
+    {
+      "id": 1,
+      "patientId": 1,
+      "patientName": "Ahmed Ali",
+      "medicineName": "Paracetamol",
+      "dose": 1050,
+      "doseUnit": "mg",
+      "frequency": "Every 6 hours",
+      "durationDays": 3,
+      "date": "2026-10-07",
+      "warnings": ["Dose is within typical reference range."]
+    }
+  ]
+}
